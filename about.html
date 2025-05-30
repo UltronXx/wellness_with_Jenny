@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>About Jenny | Holistic Wellness Coach</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+  <style>
+    :root {
+      --primary: #264E36;
+      --secondary: #5B8E7D;
+      --accent: #F4A261;
+      --light: #F9F9F9;
+      --text: #333333;
+    }
+    body {
+      font-family: 'Raleway', sans-serif;
+      margin: 0;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 18px; /* Slightly larger base font size */
+    }
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 1.2em 0; /* Reduced padding */
+    }
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .header-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 0.8rem; /* Reduced margin */
+    }
+    .logo {
+      width: 50px; /* Smaller logo */
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid white;
+    }
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      margin: 0;
+    }
+    h1 {
+      font-size: 1.8rem; /* Smaller heading */
+    }
+    h2 {
+      font-size: 2rem; /* Adjusted for balance */
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem; /* Tighter gap */
+      padding: 0.5rem 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.85rem; /* Smaller nav text */
+      letter-spacing: 0.5px;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      transition: all 0.3s;
+    }
+    nav a:hover {
+      color: var(--accent);
+      background: rgba(255,255,255,0.1);
+    }
+    .hero-about {
+      background: linear-gradient(rgba(38, 78, 54, 0.8), rgba(38, 78, 54, 0.8)), 
+                  url('images/wellness-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem; /* Reduced padding */
+      margin-bottom: 2rem;
+    }
+    .hero-about h2 {
+      font-size: 2rem; /* Smaller heading */
+      margin-bottom: 0.8rem;
+    }
+    .hero-about p {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1rem;
+    }
+    .about-container {
+      max-width: 1000px; /* Slightly narrower container */
+      margin: 0 auto 3rem;
+      padding: 0 1.5rem;
+    }
+    .about-intro {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem; /* Reduced gap */
+      margin-bottom: 3rem;
+    }
+    .about-img {
+      flex: 1;
+      min-width: 280px; /* Slightly smaller minimum */
+    }
+    .about-img img {
+      width: 100%;
+      max-width: 400px; /* Constrain image size */
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .about-text {
+      flex: 1;
+      min-width: 280px;
+    }
+    .about-text h2 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .about-text p {
+      margin-bottom: 1.2rem;
+    }
+    .signature {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--secondary);
+    }
+    .card-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem; /* Tighter gap */
+      margin-top: 2rem;
+    }
+    .about-card {
+      background: white;
+      padding: 1.5rem; /* Reduced padding */
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      border-top: 3px solid var(--accent);
+    }
+    .about-card h3 {
+      color: var(--primary);
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+    }
+    .icon {
+      font-size: 2rem; /* Smaller icons */
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+    .cta-section {
+      max-width: 500px; /* Narrower CTA */
+      padding: 1.5rem;
+      margin: 3rem auto;
+    }
+    .cta-section h2 {
+      font-size: 1.5rem;
+    }
+    .btn {
+      padding: 0.7rem 1.8rem;
+      font-size: 0.9rem;
+    }
+    footer {
+      padding: 1.5rem 1rem;
+    }
+    .social-links a {
+      font-size: 1.2rem;
+      margin: 0 8px;
+    }
+    footer p {
+      font-size: 0.9rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      body {
+        font-size: 16px;
+      }
+      .header-bar {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .hero-about {
+        padding: 2rem 1rem;
+      }
+      .about-intro {
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class='header-bar'>
+        <img src='images/logo.jpg' class='logo' alt='Jenny Logo'>
+        <h1>Wellness with Jenny</h1>
+      </div>
+      <nav>
+        <a href='index.html'>Home</a>
+        <a href='about.html'>About</a>
+        <a href='services.html'>Services</a>
+        <a href='testimonials.html'>Testimonials</a>
+        <a href='gallery.html'>Gallery</a>
+        <a href='contact.html'>Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-about" data-aos="fade">
+    <h2>Your Journey to Wellness Starts Here</h2>
+    <p>Holistic health coaching tailored to your unique needs and goals</p>
+  </section>
+
+  <main class="about-container">
+    <section class="about-intro">
+      <div class="about-img" data-aos="fade-right">
+        <img src='images\picture of jenny.jpeg' alt='Jenny - Wellness Coach'>
+      </div>
+      <div class="about-text" data-aos="fade-left">
+        <h2>Hello, I'm Jennifer</h2>
+        <p>My wellness journey began with my own transformation. After struggling with burnout and imbalance, I discovered the power of holistic health and made it my mission to guide others toward their best selves.</p>
+        <p>As a certified wellness coach with over 8 years of experience, I blend evidence-based practices with compassionate support. I believe true health isn't about perfection—it's about creating sustainable habits that bring joy and vitality.</p>
+        <p class="signature">- Jennifer</p>
+      </div>
+    </section>
+
+    <section class="card-section">
+      <div class="about-card" data-aos="fade-up">
+        <div class="icon">
+          <i class="fas fa-heart"></i>
+        </div>
+        <h3>My Philosophy</h3>
+        <p>I take a whole-person approach, addressing mind, body, and spirit. Wellness isn't one-size-fits-all—I'll help you discover what works for YOUR unique life.</p>
+      </div>
+      <div class="about-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="icon">
+          <i class="fas fa-award"></i>
+        </div>
+        <h3>Credentials</h3>
+        <p>• Certified Integrative Wellness Coach<br>
+           • Nutrition Specialist<br>
+           • Mindfulness Teacher<br>
+           • 500+ hours continuing education</p>
+      </div>
+      <div class="about-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="icon">
+          <i class="fas fa-hands-helping"></i>
+        </div>
+        <h3>My Promise</h3>
+        <p>You'll receive judgment-free support, science-backed strategies, and accountability—all while celebrating every step of your journey.</p>
+      </div>
+    </section>
+
+    <section class="cta-section" data-aos="zoom-in">
+      <h2>Ready to Begin?</h2>
+      <p>Let's create a personalized plan to help you feel your best.</p>
+      <a href="contact.html" class="btn">Schedule Your Call</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="social-links">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fas fa-envelope"></i></a>
+    </div>
+    <p>&copy; 2025 Wellness with Jenny</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 120 /* Earlier animation trigger */
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta name="description" content="Professional wellness coaching with Jenny - Transform your health through personalized nutrition, fitness, and mindfulness programs.">
+  <title>Wellness with Jenny | Holistic Health Coaching</title>
+  <link rel='stylesheet' href='style.css'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+  <style>
+    :root {
+      --primary: #264E36;
+      --primary-light: #3a6a4a;
+      --secondary: #FFD700;
+      --accent: #FF7E5D;
+      --light: #f9f9f9;
+      --dark: #333;
+      --gray: #e0e0e0;
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Raleway', sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background: var(--light);
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header */
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .logo-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--secondary);
+    }
+    
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+    
+    nav a {
+      font-weight: 500;
+      padding: 0.5rem 0;
+      position: relative;
+      transition: var(--transition);
+    }
+    
+    nav a:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--secondary);
+      transition: var(--transition);
+    }
+    
+    nav a:hover:after {
+      width: 100%;
+    }
+    
+    nav a:hover {
+      color: var(--secondary);
+    }
+    
+    /* Hero Section */
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      background: 
+        linear-gradient(rgba(38,78,54,0.85), rgba(38,78,54,0.85)), 
+        url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      color: white;
+      padding: 4rem 2rem;
+      position: relative;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .hero h2 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      margin-bottom: 1.5rem;
+      animation: fadeInDown 1s ease;
+    }
+    
+    .hero p {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      margin-bottom: 2.5rem;
+      animation: fadeIn 1.5s ease;
+    }
+    
+    .btn {
+      display: inline-block;
+      background: var(--secondary);
+      color: var(--primary);
+      padding: 0.8rem 2.2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      animation: fadeInUp 1s ease;
+    }
+    
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      background: linear-gradient(45deg, var(--secondary), #FFA500);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      margin-left: 1rem;
+    }
+    
+    .btn-outline:hover {
+      background: white;
+      color: var(--primary);
+    }
+    
+    /* Features Section */
+    .features {
+      padding: 5rem 0;
+      background: white;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .section-title h2 {
+      font-size: 2.2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    
+    .section-title p {
+      color: #666;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .feature {
+      background: white;
+      padding: 2.5rem 2rem;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: var(--transition);
+      border: 1px solid var(--gray);
+    }
+    
+    .feature:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      border-color: var(--primary-light);
+    }
+    
+    .feature i {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      background: rgba(38,78,54,0.1);
+      width: 80px;
+      height: 80px;
+      line-height: 80px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    
+    .feature h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    
+    /* Testimonials Preview */
+    .testimonials-preview {
+      padding: 5rem 0;
+      background: #f5f5f5;
+    }
+    
+    .testimonial-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    
+    .testimonial-text:before,
+    .testimonial-text:after {
+      content: '"';
+      font-size: 3rem;
+      color: var(--gray);
+      position: absolute;
+    }
+    
+    .testimonial-text:before {
+      top: -1rem;
+      left: -1.5rem;
+    }
+    
+    .testimonial-text:after {
+      bottom: -2.5rem;
+      right: -1rem;
+    }
+    
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--primary);
+    }
+    
+    /* CTA Section */
+    .cta {
+      padding: 5rem 0;
+      text-align: center;
+      background: var(--primary);
+      color: white;
+    }
+    
+    .cta h2 {
+      margin-bottom: 1.5rem;
+    }
+    
+    .cta p {
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: white;
+      padding: 3rem 0 1.5rem;
+      text-align: center;
+    }
+    
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+    
+    .footer-column {
+      flex: 1;
+      min-width: 250px;
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-column h3 {
+      margin-bottom: 1.5rem;
+      font-size: 1.3rem;
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+    
+    .footer-links a {
+      transition: var(--transition);
+    }
+    
+    .footer-links a:hover {
+      color: var(--secondary);
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+    
+    .social-links a:hover {
+      background: var(--secondary);
+      color: var(--primary);
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+      }
+      
+      .logo-container {
+        margin-bottom: 1rem;
+      }
+      
+      nav {
+        margin-top: 1rem;
+      }
+      
+      .hero {
+        min-height: auto;
+        padding: 6rem 1rem;
+      }
+      
+      .btn-outline {
+        margin-left: 0;
+        margin-top: 1rem;
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header data-aos="fade-down">
+    <div class="container header-container">
+      <div class="logo-container">
+        <img src="images/logo.jpg" alt="Wellness with Jenny Logo" class="logo-img">
+        <div class="logo-text">Wellness with Jenny</div>
+      </div>
+      <nav>
+        <a href='index.html'>Home</a>
+        <a href='about.html'>About</a>
+        <a href='services.html'>Services</a>
+        <a href='testimonials.html'>Testimonials</a>
+        <a href='gallery.html'>Gallery</a>
+        <a href='contact.html'>Contact</a>
+      </nav>
+    </div>
+  </header>
+  
+  <main>
+    <section class="hero" data-aos="fade">
+      <div class="hero-content">
+        <h2>Your Journey to Wellness Starts Here</h2>
+        <p>Helping you achieve balance and transformation through personalized coaching, nutrition planning, and mindfulness practices.</p>
+        <div>
+          <button class="btn" onclick="location.href='contact.html';">Get Started</button>
+          <button class="btn btn-outline" onclick="location.href='services.html';">Learn More</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Holistic Wellness Services</h2>
+          <p>Comprehensive programs tailored to your unique needs and goals</p>
+        </div>
+        
+        <div class="features-grid">
+          <div class="feature" data-aos="fade-up">
+            <i class="fas fa-heartbeat"></i>
+            <h3>Personal Coaching</h3>
+            <p>One-on-one sessions to guide you towards your health goals with compassion and evidence-based strategies.</p>
+          </div>
+          
+          <div class="feature" data-aos="fade-up" data-aos-delay="100">
+            <i class="fas fa-apple-alt"></i>
+            <h3>Nutrition Planning</h3>
+            <p>Customized meal plans and nutritional guidance to fuel your body optimally without restrictive diets.</p>
+          </div>
+          
+          <div class="feature" data-aos="fade-up" data-aos-delay="200">
+            <i class="fas fa-seedling"></i>
+            <h3>Mind-Body Wellness</h3>
+            <p>Techniques to cultivate mindfulness, reduce stress, and create harmony between mind and body.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="testimonials-preview">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Client Experiences</h2>
+          <p>Hear what others say about their transformation</p>
+        </div>
+        
+        <div class="testimonial-card" data-aos="zoom-in">
+          <div class="testimonial-text">
+            Jenny's approach completely changed my relationship with food and exercise. After years of yo-yo dieting, I've finally found sustainable health.
+          </div>
+          <div class="testimonial-author">— Sarah K., Client for 2 years</div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="cta" data-aos="fade-up">
+      <div class="container">
+        <h2>Ready to Transform Your Wellness Journey?</h2>
+        <p>Book a free consultation call to discuss your goals and how we can work together to achieve them.</p>
+        <button class="btn" onclick="location.href='contact.html';">Schedule Your Call</button>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Wellness with Jenny</h3>
+          <p>Holistic health coaching to help you achieve balance and vitality.</p>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="about.html">About Jenny</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="testimonials.html">Success Stories</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <ul class="footer-links">
+            <li><a href="mailto:jenny@wellnesswithjenny.com">jenny@wellnesswithjenny.com</a></li>
+            <li><a href="tel:+15551234567">(555) 123-4567</a></li>
+            <li>123 Wellness Way, Serenity, ST 12345</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2025 Wellness with Jenny. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+  </script>
+</body>
+</html>

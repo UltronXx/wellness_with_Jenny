@@ -1,0 +1,80 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+  color: #333;
+}
+
+header {
+  background: #00796b;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+.header-bar {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+nav {
+  margin-top: 0.5rem;
+}
+
+nav a {
+  margin: 0 15px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #ffccbc; /* Lighten color on hover */
+}
+
+main {
+  padding: 2rem;
+  text-align: center;
+}
+
+.profile-pic {
+  width: 150px;  /* Adjust as needed */
+  height: auto;  /* Maintain aspect ratio */
+  border-radius: 50%; /* Makes the picture circular */
+  display: block;
+  margin: 20px auto; /* Center the image */
+}
+
+.logo {
+  width: 120px;  /* Adjust as needed */
+  height: auto;  /* Maintain aspect ratio */
+  display: block;
+  margin: 0 auto; /* Center the logo */
+}
+
+footer {
+  background: #004d40;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .profile-pic {
+    width: 120px; /* Adjust for smaller screens */
+  }
+
+  .logo {
+    width: 100px; /* Adjust for smaller screens */
+  }
+}
