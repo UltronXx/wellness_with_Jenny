@@ -3,7 +3,7 @@
 <head>
   <meta charset='UTF-8'>
   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <meta name="description" content="Professional wellness coaching with Jenny - Transform your health through personalized nutrition, fitness, and mindfulness programs.">
+  <meta name="description" content="Holistic wellness coaching with Jenny - Transform your health through personalized fitness, nutrition, and lifestyle programs.">
   <title>Wellness with Jenny | Holistic Health Coaching</title>
   <link rel='stylesheet' href='style.css'>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -131,7 +131,7 @@
       text-align: center;
       background: 
         linear-gradient(rgba(38,78,54,0.85), rgba(38,78,54,0.85)), 
-        url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+        url('https://images.unsplash.com/photo-1545205597-3d9d02c29597?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
       color: white;
       padding: 4rem 2rem;
       position: relative;
@@ -186,8 +186,8 @@
       color: var(--primary);
     }
     
-    /* Features Section */
-    .features {
+    /* Pillars Section */
+    .pillars {
       padding: 5rem 0;
       background: white;
     }
@@ -209,13 +209,13 @@
       margin: 0 auto;
     }
     
-    .features-grid {
+    .pillars-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
     }
     
-    .feature {
+    .pillar {
       background: white;
       padding: 2.5rem 2rem;
       border-radius: 10px;
@@ -223,34 +223,84 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.05);
       transition: var(--transition);
       border: 1px solid var(--gray);
+      position: relative;
+      overflow: hidden;
     }
     
-    .feature:hover {
+    .pillar:hover {
       transform: translateY(-10px);
       box-shadow: 0 15px 30px rgba(0,0,0,0.1);
       border-color: var(--primary-light);
     }
     
-    .feature i {
-      font-size: 2.5rem;
-      color: var(--primary);
+    .pillar-image {
+      height: 200px;
+      overflow: hidden;
       margin-bottom: 1.5rem;
-      background: rgba(38,78,54,0.1);
-      width: 80px;
-      height: 80px;
-      line-height: 80px;
-      border-radius: 50%;
-      display: inline-block;
+      border-radius: 8px;
     }
     
-    .feature h3 {
+    .pillar-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    
+    .pillar:hover .pillar-image img {
+      transform: scale(1.05);
+    }
+    
+    .pillar i {
+      font-size: 2.5rem;
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+    }
+    
+    .pillar h3 {
       font-size: 1.4rem;
       margin-bottom: 1rem;
       color: var(--primary);
     }
     
-    /* Testimonials Preview */
-    .testimonials-preview {
+    /* Wellness Showcase */
+    .wellness-showcase {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    
+    .wellness-image {
+      height: 300px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .wellness-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    
+    .wellness-image:hover img {
+      transform: scale(1.05);
+    }
+    
+    .image-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(38,78,54,0.8);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-weight: 600;
+    }
+    
+    /* Testimonials */
+    .testimonials {
       padding: 5rem 0;
       background: #f5f5f5;
     }
@@ -421,6 +471,8 @@
       
       nav {
         margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
       }
       
       .hero {
@@ -432,6 +484,10 @@
         margin-left: 0;
         margin-top: 1rem;
         display: block;
+      }
+      
+      .wellness-showcase {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -446,9 +502,9 @@
       <nav>
         <a href='index.html'>Home</a>
         <a href='about.html'>About</a>
-        <a href='services.html'>Services</a>
-        <a href='testimonials.html'>Testimonials</a>
-        <a href='gallery.html'>Gallery</a>
+        <a href='services.html'>Programs</a>
+        <a href='testimonials.html'>Results</a>
+        <a href='blog.html'>Blog</a>
         <a href='contact.html'>Contact</a>
       </nav>
     </div>
@@ -457,65 +513,89 @@
   <main>
     <section class="hero" data-aos="fade">
       <div class="hero-content">
-        <h2>Your Journey to Wellness Starts Here</h2>
-        <p>Helping you achieve balance and transformation through personalized coaching, nutrition planning, and mindfulness practices.</p>
+        <h2>Holistic Health for Lasting Wellness</h2>
+        <p>Personalized coaching that combines fitness, nutrition, and mindfulness to help you achieve optimal health.</p>
         <div>
-          <button class="btn" onclick="location.href='contact.html';">Get Started</button>
-          <button class="btn btn-outline" onclick="location.href='services.html';">Learn More</button>
+          <button class="btn" onclick="location.href='contact.html';">Start Your Journey</button>
+          <button class="btn btn-outline" onclick="location.href='services.html';">Our Programs</button>
         </div>
       </div>
     </section>
 
-    <section class="features">
+    <section class="pillars">
       <div class="container">
         <div class="section-title" data-aos="fade-up">
-          <h2>Holistic Wellness Services</h2>
-          <p>Comprehensive programs tailored to your unique needs and goals</p>
+          <h2>The Three Pillars of Wellness</h2>
+          <p>Our comprehensive approach addresses all aspects of your health</p>
         </div>
         
-        <div class="features-grid">
-          <div class="feature" data-aos="fade-up">
-            <i class="fas fa-heartbeat"></i>
-            <h3>Personal Coaching</h3>
-            <p>One-on-one sessions to guide you towards your health goals with compassion and evidence-based strategies.</p>
+        <div class="pillars-grid">
+          <div class="pillar" data-aos="fade-up">
+            <div class="pillar-image">
+              <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Fitness Training">
+            </div>
+            <i class="fas fa-dumbbell"></i>
+            <h3>Fitness</h3>
+            <p>Customized workout plans to build strength, endurance, and mobility tailored to your body and goals.</p>
           </div>
           
-          <div class="feature" data-aos="fade-up" data-aos-delay="100">
-            <i class="fas fa-apple-alt"></i>
-            <h3>Nutrition Planning</h3>
-            <p>Customized meal plans and nutritional guidance to fuel your body optimally without restrictive diets.</p>
+          <div class="pillar" data-aos="fade-up" data-aos-delay="100">
+            <div class="pillar-image">
+              <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Healthy Eating">
+            </div>
+            <i class="fas fa-utensils"></i>
+            <h3>Nutrition</h3>
+            <p>Personalized meal planning that focuses on nourishment, balance, and sustainable eating habits.</p>
           </div>
           
-          <div class="feature" data-aos="fade-up" data-aos-delay="200">
-            <i class="fas fa-seedling"></i>
-            <h3>Mind-Body Wellness</h3>
-            <p>Techniques to cultivate mindfulness, reduce stress, and create harmony between mind and body.</p>
+          <div class="pillar" data-aos="fade-up" data-aos-delay="200">
+            <div class="pillar-image">
+              <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Mindfulness">
+            </div>
+            <i class="fas fa-spa"></i>
+            <h3>Mindfulness</h3>
+            <p>Techniques to reduce stress, improve sleep, and cultivate a positive mindset for overall wellbeing.</p>
           </div>
         </div>
       </div>
     </section>
     
-    <section class="testimonials-preview">
+    <section class="wellness-showcase">
+      <div class="wellness-image" data-aos="zoom-in">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Personal Training">
+        <div class="image-label">Personal Training Sessions</div>
+      </div>
+      <div class="wellness-image" data-aos="zoom-in" data-aos-delay="100">
+        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Meal Planning">
+        <div class="image-label">Nutrition Coaching</div>
+      </div>
+      <div class="wellness-image" data-aos="zoom-in" data-aos-delay="200">
+        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Wellness Coaching">
+        <div class="image-label">Lifestyle Guidance</div>
+      </div>
+    </section>
+    
+    <section class="testimonials">
       <div class="container">
         <div class="section-title" data-aos="fade-up">
-          <h2>Client Experiences</h2>
-          <p>Hear what others say about their transformation</p>
+          <h2>Transformational Results</h2>
+          <p>Hear from clients who transformed their health through our holistic approach</p>
         </div>
         
         <div class="testimonial-card" data-aos="zoom-in">
           <div class="testimonial-text">
-            Jenny's approach completely changed my relationship with food and exercise. After years of yo-yo dieting, I've finally found sustainable health.
+            Jenny's balanced approach helped me lose 25 pounds while gaining strength and energy. The combination of tailored workouts and sustainable nutrition advice made all the difference.
           </div>
-          <div class="testimonial-author">— Sarah K., Client for 2 years</div>
+          <div class="testimonial-author">— Sarah M., 6 Month Client</div>
         </div>
       </div>
     </section>
     
     <section class="cta" data-aos="fade-up">
       <div class="container">
-        <h2>Ready to Transform Your Wellness Journey?</h2>
-        <p>Book a free consultation call to discuss your goals and how we can work together to achieve them.</p>
-        <button class="btn" onclick="location.href='contact.html';">Schedule Your Call</button>
+        <h2>Ready to Invest in Your Health?</h2>
+        <p>Schedule your free consultation to discuss your wellness goals and how we can help you achieve them.</p>
+        <button class="btn" onclick="location.href='contact.html';">Book Your Consultation</button>
       </div>
     </section>
   </main>
@@ -525,16 +605,16 @@
       <div class="footer-content">
         <div class="footer-column">
           <h3>Wellness with Jenny</h3>
-          <p>Holistic health coaching to help you achieve balance and vitality.</p>
+          <p>Holistic coaching for fitness, nutrition, and mindful living.</p>
         </div>
         
         <div class="footer-column">
           <h3>Quick Links</h3>
           <ul class="footer-links">
             <li><a href="about.html">About Jenny</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="testimonials.html">Success Stories</a></li>
-            <li><a href="blog.html">Blog</a></li>
+            <li><a href="services.html">Wellness Programs</a></li>
+            <li><a href="testimonials.html">Client Results</a></li>
+            <li><a href="blog.html">Health Blog</a></li>
           </ul>
         </div>
         
@@ -543,7 +623,7 @@
           <ul class="footer-links">
             <li><a href="mailto:jenny@wellnesswithjenny.com">jenny@wellnesswithjenny.com</a></li>
             <li><a href="tel:+15551234567">(555) 123-4567</a></li>
-            <li>123 Wellness Way, Serenity, ST 12345</li>
+            <li>123 Wellness Way, Healthville, ST 12345</li>
           </ul>
         </div>
       </div>
@@ -551,8 +631,8 @@
       <div class="social-links">
         <a href="#"><i class="fab fa-facebook-f"></i></a>
         <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-pinterest-p"></i></a>
         <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-pinterest-p"></i></a>
       </div>
       
       <div class="copyright">
