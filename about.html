@@ -182,20 +182,67 @@
       font-size: 0.9rem;
     }
 
+    /* Mobile Menu Styles */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
     /* Responsive adjustments */
+    @media (max-width: 900px) {
+      nav {
+        gap: 1rem;
+      }
+      
+      nav a {
+        font-size: 0.9rem;
+      }
+    }
+
     @media (max-width: 768px) {
-      body {
-        font-size: 16px;
+      .mobile-menu-btn {
+        display: block;
       }
-      .header-bar {
+      
+      .header-container {
+        padding: 0.5rem 0;
+      }
+      
+      nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--primary);
         flex-direction: column;
-        gap: 10px;
+        align-items: center;
+        padding: 1rem 0;
+        gap: 1rem;
+        display: none;
+        box-shadow: 0 2px 15px rgba(0,0,0,0.1);
       }
-      .hero-about {
-        padding: 2rem 1rem;
+      
+      nav.active {
+        display: flex;
       }
-      .about-intro {
-        gap: 1.5rem;
+      
+      nav a {
+        width: 100%;
+        text-align: center;
+        padding: 0.7rem 0;
+      }
+      
+      nav a:after {
+        display: none;
+      }
+      
+      nav a:hover {
+        background: var(--primary-light);
       }
     }
   </style>
@@ -207,6 +254,9 @@
         <img src='images/logo.jpg' class='logo' alt='Jenny Logo'>
         <h1>Wellness with Jenny</h1>
       </div>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
       <nav>
         <a href='index.html'>Home</a>
         <a href='about.html'>About</a>
@@ -285,6 +335,38 @@
       duration: 800,
       once: true,
       offset: 120 /* Earlier animation trigger */
+    });
+
+    // Mobile menu functionality
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const nav = document.querySelector('nav');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      nav.classList.toggle('active');
+      const isExpanded = nav.classList.contains('active');
+      mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
+      
+      // Change icon based on menu state
+      const icon = mobileMenuBtn.querySelector('i');
+      icon.className = isExpanded ? 'fas fa-times' : 'fas fa-bars';
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!nav.contains(e.target) && !mobileMenuBtn.contains(e.target) && nav.classList.contains('active')) {
+        nav.classList.remove('active');
+        mobileMenuBtn.setAttribute('aria-expanded', false);
+        mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
+      }
+    });
+    
+    // Close menu when window is resized above mobile breakpoint
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768 && nav.classList.contains('active')) {
+        nav.classList.remove('active');
+        mobileMenuBtn.setAttribute('aria-expanded', false);
+        mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
+      }
     });
   </script>
 </body>
