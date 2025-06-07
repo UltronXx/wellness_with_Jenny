@@ -1,4 +1,4 @@
-body {
+{
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -31,7 +31,7 @@ nav a {
 }
 
 nav a:hover {
-  color: #ffccbc;
+  color: #ffccbc; /* Lighten color on hover */
 }
 
 main {
@@ -40,18 +40,18 @@ main {
 }
 
 .profile-pic {
-  width: 150px;
-  height: auto;
-  border-radius: 50%;
+  width: 150px;  /* Adjust as needed */
+  height: auto;  /* Maintain aspect ratio */
+  border-radius: 50%; /* Makes the picture circular */
   display: block;
-  margin: 20px auto;
+  margin: 20px auto; /* Center the image */
 }
 
 .logo {
-  width: 120px;
-  height: auto;
+  width: 120px;  /* Adjust as needed */
+  height: auto;  /* Maintain aspect ratio */
   display: block;
-  margin: 0 auto;
+  margin: 0 auto; /* Center the logo */
 }
 
 footer {
@@ -64,6 +64,20 @@ footer {
   width: 100%;
 }
 
+@media (max-width: 600px) {
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .profile-pic {
+    width: 120px; /* Adjust for smaller screens */
+  }
+
+  .logo {
+    width: 100px; /* Adjust for smaller screens */
+  }
+}
 img {
   max-width: 100%;
   height: auto;
@@ -74,26 +88,18 @@ img {
   padding: 10px;
   box-sizing: border-box;
 }
-
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
   flex-wrap: wrap;
-  background-color: #00796b;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
 }
 
 .nav-links a {
   margin: 0 10px;
   text-decoration: none;
-  color: white;
-  font-weight: bold;
+  color: #333;
 }
 
 .menu-toggle {
@@ -101,43 +107,61 @@ img {
   font-size: 24px;
   background: none;
   border: none;
-  color: white;
   cursor: pointer;
 }
 
-/* MOBILE STYLES */
+/* Mobile Styles */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
     flex-direction: column;
     width: 100%;
-    background-color: #00796b;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    z-index: 1000;
-  }
-
-  .nav-links.active {
-    display: flex;
+    background-color: #f0f0f0;
   }
 
   .nav-links a {
-    padding: 15px;
+    padding: 10px;
     text-align: center;
-    border-top: 1px solid #004d40;
-    color: white;
+    border-top: 1px solid #ddd;
   }
 
   .menu-toggle {
     display: block;
   }
 
-  .profile-pic {
-    width: 120px;
+  .nav-links.active {
+    display: flex;
+  }
+}
+@media (max-width: 768px) {
+  /* Add this to ensure proper initial state */
+  .nav-links {
+    display: none;
+  }
+  
+  .nav-links.active {
+    display: flex;
+  }
+}
+@media (max-width: 768px) {
+  .nav-links {
+    /* Add these properties to fix blurriness */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    transform: translateZ(0);
+    text-rendering: optimizeLegibility;
+    
+    /* Ensure proper text scaling */
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    
+    /* If using transform animations, add this */
+    will-change: transform;
   }
 
-  .logo {
-    width: 100px;
+  .nav-links a {
+    /* Force full pixel alignment */
+    transform: translateY(0.5px) translateZ(0);
   }
 }
