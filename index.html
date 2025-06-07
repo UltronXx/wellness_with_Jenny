@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset='UTF-8'>
   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
   <meta name="description" content="Holistic wellness coaching with Jenny - Transform your health through personalized fitness, nutrition, and lifestyle programs.">
@@ -93,80 +92,19 @@
       font-weight: 700;
     }
     
-    /* Hamburger Menu Styles */
-    .hamburger {
-      display: none; /* Hidden by default on desktop */
-      cursor: pointer;
-      padding: 10px;
-      background: transparent;
-      border: none;
-      z-index: 101;
-    }
-    
-    .hamburger-box {
-      width: 30px;
-      height: 24px;
-      display: inline-block;
-      position: relative;
-    }
-    
-    .hamburger-inner {
-      width: 100%;
-      height: 2px;
-      background-color: white;
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      transition: var(--transition);
-    }
-    
-    .hamburger-inner::before,
-    .hamburger-inner::after {
-      content: "";
-      width: 100%;
-      height: 2px;
-      background-color: white;
-      position: absolute;
-      left: 0;
-      transition: var(--transition);
-    }
-    
-    .hamburger-inner::before {
-      top: -8px;
-    }
-    
-    .hamburger-inner::after {
-      top: 8px;
-    }
-    
-    /* Active state for hamburger */
-    .hamburger.is-active .hamburger-inner {
-      transform: rotate(45deg);
-    }
-    
-    .hamburger.is-active .hamburger-inner::before {
-      transform: rotate(-90deg) translateX(-8px);
-    }
-    
-    .hamburger.is-active .hamburger-inner::after {
-      opacity: 0;
-    }
-    
-    /* Navigation */
-    .nav-links {
+    nav {
       display: flex;
       gap: 1.5rem;
     }
     
-    .nav-links a {
+    nav a {
       font-weight: 500;
       padding: 0.5rem 0;
       position: relative;
       transition: var(--transition);
     }
     
-    .nav-links a:after {
+    nav a:after {
       content: '';
       position: absolute;
       bottom: 0;
@@ -177,65 +115,12 @@
       transition: var(--transition);
     }
     
-    .nav-links a:hover:after {
+    nav a:hover:after {
       width: 100%;
     }
     
-    .nav-links a:hover {
+    nav a:hover {
       color: var(--secondary);
-    }
-    
-    /* Mobile menu styles */
-    @media (max-width: 768px) {
-      .hamburger {
-        display: block;
-      }
-      
-      .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 70%;
-        max-width: 300px;
-        height: 100vh;
-        background: var(--primary);
-        flex-direction: column;
-        padding: 6rem 2rem 2rem;
-        transition: right 0.3s ease;
-        z-index: 100;
-      }
-    
-      .nav-links.active {
-        right: 0;
-      }
-      
-      .nav-links a {
-        padding: 1rem 0;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-      }
-      
-      .nav-links a:after {
-        display: none;
-      }
-      
-      /* Overlay when menu is open */
-      .nav-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.5);
-        z-index: 99;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-      }
-      
-      .nav-overlay.active {
-        opacity: 1;
-        visibility: visible;
-      }
     }
     
     /* Hero Section */
@@ -577,11 +462,22 @@
     /* Responsive */
     @media (max-width: 768px) {
       .header-container {
-        flex-direction: row;
+        flex-direction: column;
       }
       
       .logo-container {
-        margin-bottom: 0;
+        margin-bottom: 1rem;
+      }
+      
+      nav {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .hero {
+        min-height: auto;
+        padding: 6rem 1rem;
       }
       
       .btn-outline {
@@ -603,15 +499,7 @@
         <img src="images/logo.jpg" alt="Wellness with Jenny Logo" class="logo-img">
         <div class="logo-text">Wellness with Jenny</div>
       </div>
-      
-      <!-- Hamburger Menu Button -->
-      <button class="hamburger" aria-label="Menu" aria-expanded="false">
-        <span class="hamburger-box">
-          <span class="hamburger-inner"></span>
-        </span>
-      </button>
-      
-      <nav class="nav-links">
+      <nav>
         <a href='index.html'>Home</a>
         <a href='about.html'>About</a>
         <a href='services.html'>Programs</a>
@@ -621,8 +509,6 @@
       </nav>
     </div>
   </header>
-  
-  <!-- Navigation Overlay (will be added by JavaScript) -->
   
   <main>
     <section class="hero" data-aos="fade">
@@ -757,76 +643,10 @@
   
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
-    // Initialize AOS animations
     AOS.init({
       duration: 800,
       once: true
     });
-
-    // Hamburger menu functionality with persistent state
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    const body = document.body;
-    
-    // Create overlay element
-    const overlay = document.createElement('div');
-    overlay.className = 'nav-overlay';
-    document.body.appendChild(overlay);
-    
-    // Check if menu was open from previous page
-    document.addEventListener('DOMContentLoaded', function() {
-      // Add no-scroll style
-      const style = document.createElement('style');
-      style.textContent = `
-        .no-scroll {
-          overflow: hidden;
-        }
-      `;
-      document.head.appendChild(style);
-      
-      // Check sessionStorage for menu state
-      if (sessionStorage.getItem('menuOpen') === 'true') {
-        hamburger.classList.add('is-active');
-        navLinks.classList.add('active');
-        overlay.classList.add('active');
-        body.classList.add('no-scroll');
-        hamburger.setAttribute('aria-expanded', 'true');
-      }
-    });
-    
-    // Toggle menu
-    hamburger.addEventListener('click', function() {
-      const isOpening = !this.classList.contains('is-active');
-      
-      this.classList.toggle('is-active');
-      navLinks.classList.toggle('active');
-      overlay.classList.toggle('active');
-      body.classList.toggle('no-scroll');
-      
-      // Update aria-expanded attribute
-      const isExpanded = this.getAttribute('aria-expanded') === 'true';
-      this.setAttribute('aria-expanded', !isExpanded);
-      
-      // Save state to sessionStorage
-      sessionStorage.setItem('menuOpen', isOpening);
-    });
-    
-    // Close menu when clicking overlay or nav links
-    overlay.addEventListener('click', closeMenu);
-    
-    // Close menu when clicking any nav link (for single page navigation)
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', closeMenu);
-    });
-    
-    function closeMenu() {
-      hamburger.classList.remove('is-active');
-      navLinks.classList.remove('active');
-      overlay.classList.remove('active');
-      body.classList.remove('no-scroll');
-      hamburger.setAttribute('aria-expanded', 'false');
-      sessionStorage.setItem('menuOpen', 'false');
-    }
   </script>
 </body>
 </html>
