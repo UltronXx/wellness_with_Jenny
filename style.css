@@ -143,3 +143,25 @@ img {
     display: flex;
   }
 }
+@media (max-width: 768px) {
+  .nav-links {
+    /* Add these properties to fix blurriness */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    transform: translateZ(0);
+    text-rendering: optimizeLegibility;
+    
+    /* Ensure proper text scaling */
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    
+    /* If using transform animations, add this */
+    will-change: transform;
+  }
+
+  .nav-links a {
+    /* Force full pixel alignment */
+    transform: translateY(0.5px) translateZ(0);
+  }
+}
